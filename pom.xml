@@ -7,15 +7,45 @@
     <groupId>com.didi</groupId>
     <artifactId>sparkApp</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Class-Path>.</Class-Path>
+                        </manifestEntries>
+                        <manifest>
+                            <mainClass>test</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- 指定在打包节点执行jar包合并操作 -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.10 -->
     <dependencies>
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_2.10</artifactId>
-        <version>1.6.1</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -35,36 +65,7 @@
             <artifactId>spark-hive_2.10</artifactId>
             <version>1.2.1</version>
         </dependency>
-
     </dependencies>
-
-
-    <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <configuration>
-            <archive>
-                <manifestEntries>
-                    <Class-Path>.</Class-Path>
-                </manifestEntries>
-                <manifest>
-                    <mainClass>com.didichuxing.tempdirreader.dayIncreMonitor</mainClass>
-                </manifest>
-            </archive>
-            <descriptorRefs>
-                <descriptorRef>jar-with-dependencies</descriptorRef>
-            </descriptorRefs>
-        </configuration>
-        <executions>
-            <execution>
-                <id>make-assembly</id> <!-- this is used for inheritance merges -->
-                <phase>package</phase> <!-- 指定在打包节点执行jar包合并操作 -->
-                <goals>
-                    <goal>single</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
-
 
 
 </project>
