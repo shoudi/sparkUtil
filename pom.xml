@@ -22,7 +22,7 @@
                                 <Class-Path>.</Class-Path>
                             </manifestEntries>
                             <manifest>
-                                <mainClass>test</mainClass>
+                                <mainClass>test02</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>
