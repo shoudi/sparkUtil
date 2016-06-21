@@ -4,7 +4,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
   * Created by didi on 16/6/21.
   */
-object test02 {
+class test02 {
   def main(args: Array[String]) {
     val conf: SparkConf = new SparkConf().setAppName("name01").setMaster("yarn-client")
     val sc = new SparkContext(conf)
