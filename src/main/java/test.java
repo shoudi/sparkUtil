@@ -10,7 +10,7 @@ import org.apache.spark.sql.SQLContext;
 
 
 public class test {
-    public void main( String[] args){
+    public static  void main( String[] args){
         SparkConf conf=new SparkConf().setAppName("name01");
         JavaSparkContext sc=new JavaSparkContext(conf);
         SQLContext sqlContext = new SQLContext(sc);
