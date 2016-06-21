@@ -11,7 +11,7 @@ import org.apache.spark.sql.SQLContext;
 
 public class test {
     public static  void main( String[] args){
-        SparkConf conf=new SparkConf().setAppName("name01");
+        SparkConf conf=new SparkConf().setAppName("name01").setMaster("yarn-client");
         JavaSparkContext sc=new JavaSparkContext(conf);
         SQLContext sqlContext = new SQLContext(sc);
         DataFrame df=sqlContext.sql(args[0].toString());
